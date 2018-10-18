@@ -17,11 +17,11 @@ ORG=$(git remote get-url origin | cut -d'/' -f4)
 REPO=$(git remote get-url origin | cut -d'/' -f5 | cut -d'.' -f1)
 
 # If tag was not passed, get the latest tag from the repo
-if [ "$3" == '' ]
+if [ "$1" == '' ]
 then
     TAG=$(git for-each-ref --count=1 --sort=-taggerdate --format '%(tag)' refs/tags)
 else 
-    TAG=$3
+    TAG=$1
 fi
 
 echo ""
